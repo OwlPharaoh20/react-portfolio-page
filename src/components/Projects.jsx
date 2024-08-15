@@ -26,23 +26,15 @@ group-hover:opacity-100">
 
     </div>
      </a>
-
-
 </div>
 </div>
+
 
             )) 
             }
 
 
              </div>
-
-
-
-
-
-
-
 
 
     </section>
