@@ -1,7 +1,8 @@
 import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import {FiSend} from "react-icons/fi"
+import {FiSend} from "react-icons/fi";
+import {motion} from "framer-motion";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({ 
@@ -74,7 +75,11 @@ const ContactForm = () => {
       <Toaster/>
       <h2 className="my-8 text-center text-4xl font-semibold
       tracking-tighter"> Let's Connect </h2>  
-      <form onSubmit={handleSubmit}>
+      <motion.form 
+      initial={{ opacity:0}}
+      whileInView={{opacity:1}}
+      transition={{ duration: 0.8, delay: 0.7}}
+      onSubmit={handleSubmit}>
         <div className="mb-4 flex space-x-4">
            <div className="lg:w-1/2">
            <input type="text"
@@ -88,7 +93,11 @@ const ContactForm = () => {
            text-sm focus:border-stone-400 focus:outline-none"
            />
             {errors.name && (
-              <p className="text-sm text-rose-800"> {errors.name} </p>
+              <motion.p 
+              initial={{ opacity: 0}}
+              whileInView={{ opacity:1 }}
+              className="text-sm text-rose-800"> 
+              {errors.name} </motion.p>
             )}
             </div> 
 
@@ -105,7 +114,11 @@ const ContactForm = () => {
            text-sm focus:border-stone-400 focus:outline-none"
            />
             {errors.email && (
-              <p className="text-sm text-rose-800"> {errors.email} </p>
+              <motion.p 
+              initial={{opacity: 0 }}
+              whileInView={{ opacity:1 }}
+              className="text-sm text-rose-800"> 
+              {errors.email} </motion.p>
             )}
             </div>
 
@@ -142,7 +155,7 @@ const ContactForm = () => {
                  </button>
         
         
-        </form>       
+        </motion.form>       
       </div>
   )
 }
